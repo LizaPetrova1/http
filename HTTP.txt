@@ -1,0 +1,85 @@
+https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99 - 200 OK
+{
+    "coord": {
+        "lon": 10.99,
+        "lat": 44.34
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 294.65,
+        "feels_like": 294.68,
+        "temp_min": 289.96,
+        "temp_max": 296.05,
+        "pressure": 1012,
+        "humidity": 70,
+        "sea_level": 1012,
+        "grnd_level": 946
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 0.85,
+        "deg": 154,
+        "gust": 1.9
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1719477903,
+    "sys": {
+        "type": 2,
+        "id": 2004688,
+        "country": "IT",
+        "sunrise": 1719459231,
+        "sunset": 1719515055
+    },
+    "timezone": 7200,
+    "id": 3163858,
+    "name": "Zocca",
+    "cod": 200
+}
+
+
+https://api.openweathermap.org/data/2.5/weather?lat=444444444&lon=0 - 400 Bad Request
+{
+    "cod": "400",
+    "message": "wrong latitude"
+}
+
+
+https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key} 401Unauthorized
+"cod": 401,
+    "message": "Please note that using One Call 3.0 requires a separate subscription to the One Call by Call plan. Learn more here https://openweathermap.org/price. If you have a valid subscription to the One Call by Call plan, but still receive this error, then please see https://openweathermap.org/faq#error401 for more info."
+}
+
+
+https://api.openweathermap.org/fag 404 Not Found
+<head>
+    <title>404 Not Found</title>
+</head>
+
+<body>
+    <center>
+        <h1>404 Not Found</h1>
+    </center>
+    <hr>
+    <center>openresty</center>
+</body>
+
+</html>
+
+
+https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={API key} 405Method Not Allowed
+{
+    "cod": "405",
+    "message": "Internal error"
+}
+429 Too Many Requests пользователь отправлял чересчур много запросов за единицу времени.
+500, 502, 503, 504 - может возвращать, но это ошибки сервера
